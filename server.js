@@ -1,10 +1,13 @@
 const express = require("express");
 const fetch = require("node-fetch");
+const cors = require("cors"); // Asegúrate de instalar cors y node-fetch en la terminal de bash en la carpeta del proyecto
+// Puedes instalarlo con: npm install cors node-fetch. Es para permitir solicitudes cruzadas desde el frontend a tu API.
+
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+app.use(cors());
 app.use(express.json());
 
 app.get("/api/clima", async (req, res) => {
